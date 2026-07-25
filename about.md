@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-![my_image]({{ site.url}}/assets/images/my_profile_picture.jpg)
+![my_image]({{ site.url}}{{ site.baseurl }}/assets/images/my_profile_picture.jpg)
 
 
 Hi, I am Full-stack developer by profession, Computer scientist by heart and

@@ -20,6 +20,8 @@ description: > # this means to ignore newlines until "baseurl:"
   and an Actor by gene. I write mostly on programming topics. Browse through
   my blog posts to identify my taste of writing.
 
+# GitHub Pages project site path. Keep in sync with the "^/Blog" prefix
+# in scripts/test's --swap-urls, which strips it for local link-checking.
 baseurl: "/Blog" # the subpath of your site, e.g. /blog
 twitter_username: jaysinhp
 github_username:  ultimatecoder
@@ -36,7 +38,6 @@ exclude:
   - Gemfile.lock
   - vendor
 
-# google_analytics: G-XXXXXXXXXX  # Replace with your GA4 measurement ID
 defaults:
   -
     scope:

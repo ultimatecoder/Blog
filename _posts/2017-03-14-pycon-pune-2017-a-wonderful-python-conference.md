@@ -13,7 +13,7 @@ excerpt: >
 ---
 
 ![pycon_pune_group_photo]({{
-site.url}}/assets/images/pycon_pune_group_photo.jpg)
+site.url}}{{ site.baseurl }}/assets/images/pycon_pune_group_photo.jpg)
 
 ## tl;dr
 
@@ -103,7 +103,7 @@ his experience of programming. He is authoring few books written in the Japanese
 language. Stephen is [Emacsite](https://www.gnu.org/s/emacs/).
 
 ![stephen_turnbull]({{
-site.url}}/assets/images/stephen_turnbull.jpg)
+site.url}}{{ site.baseurl }}/assets/images/stephen_turnbull.jpg)
 
 #### [Terri Oda](https://twitter.com/terriko)
 
@@ -123,7 +123,7 @@ discussing various authentication mechanisms for ReST API with him.  He is a
 Red Hatter.
 
 ![gnu_mailman_team]({{
-site.url}}/assets/images/gnu_mailman_team.jpg)
+site.url}}{{ site.baseurl }}/assets/images/gnu_mailman_team.jpg)
 
 #### [Nick Coghlan](https://twitter.com/ncoghlan_dev)
 
@@ -153,7 +153,7 @@ conference days.
 
 
 ![pycon_pune_2017_keynote_speakers]({{
-site.url}}/assets/images/pycon_pune_2017_keynote_speakers.jpg)
+site.url}}{{ site.baseurl }}/assets/images/pycon_pune_2017_keynote_speakers.jpg)
 
 
 #### Volunteer Party
@@ -181,7 +181,7 @@ Turnbull and Florian Fuchs mentored for
 
 
 ![cpython_devsprint]({{
-site.url}}/assets/images/cpython_devsprint.jpg)
+site.url}}{{ site.baseurl }}/assets/images/cpython_devsprint.jpg)
 
 #### Why attend this conference?
 

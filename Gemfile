@@ -15,4 +15,6 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
   gem "jekyll-sitemap", "~> 1.4"
   gem "jekyll-seo-tag", "~> 2.8"
+  # Minifies HTML/CSS/JS output; only runs when JEKYLL_ENV=production.
+  gem "jekyll-minifier", "~> 0.2"
 end

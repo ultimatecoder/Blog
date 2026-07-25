@@ -10,7 +10,7 @@ excerpt: Steps to restore your GRUB if you have formatted boot partition mistake
 ---
 
 ![How to repair a broken GRUB]({{
-site.url}}/assets/images/how_to_fix_broken_grub/grub_title.png)
+site.url}}{{ site.baseurl }}/assets/images/how_to_fix_broken_grub/grub_title.png)
 
 ## Background story
 
@@ -62,7 +62,7 @@ post might not work for you. To identify which type your system has booted with,
 first partition of the drive you are using for booting your operating system.
 
   ![Identify boot partition using gparted]({{
-  site.url}}/assets/images/how_to_fix_broken_grub/gparted_identification_parition.png)
+  site.url}}{{ site.baseurl }}/assets/images/how_to_fix_broken_grub/gparted_identification_parition.png)
 
   In my case, it is `/dev/sda1`. This partition should be either [FAT32][fat32]
   or [FAT16][fat16].  If it is anything other than that you should format it to
@@ -105,7 +105,7 @@ file. Use below command to get the latest **UUID** of your boot partition.
   ```sudo blkid /dev/sda1```
 
   ![Identifying UUID of boot efi]({{
-  site.url}}/assets/images/how_to_fix_broken_grub/uuid_blkid_shell.png)
+  site.url}}{{ site.baseurl }}/assets/images/how_to_fix_broken_grub/uuid_blkid_shell.png)
 
   Copy the value of **UUID** which is between the double quotes.
 
@@ -116,7 +116,7 @@ file. Use below command to get the latest **UUID** of your boot partition.
   ```sudo vim /etc/fstab```
 
   ![Updating the UUID to the etc fstab file]({{
-  site.url}}/assets/images/how_to_fix_broken_grub/vim_etc_fstab.png)
+  site.url}}{{ site.baseurl }}/assets/images/how_to_fix_broken_grub/vim_etc_fstab.png)
 
   You will require the root privileges for writing to this file.
 

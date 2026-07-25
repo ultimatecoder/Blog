@@ -21,7 +21,7 @@ glance with a guess of getting less invitations. But the estimate went wrong.
 Below is the summary of yearly progress highlight with word of experience.
 
 ![Python workshop
-piechart]({{site.url}}/assets/images/python_workshop_piechart.png)
+piechart]({{site.url}}{{ site.baseurl }}/assets/images/python_workshop_piechart.png)
 
 During my last year I conducted 13 workshops at various colleges of
 state Gujarat and Rajasthan. 10 workshops were conducted targeting college
@@ -66,7 +66,7 @@ living nearby Ahmedabad and want to contribute to this movement, please get in
 touch over email.
 
 
-![Python Express Ahmedabad]({{site.url}}/assets/images/python_express_ahmedabad.jpg)
+![Python Express Ahmedabad]({{site.url}}{{ site.baseurl }}/assets/images/python_express_ahmedabad.jpg)
 
 
 **"Teaching is the best way to learn."**
@@ -87,7 +87,7 @@ You can download [Slides here](https://goo.gl/vTBhTh) and
 Photos
 -----------------
 
-![PG GTU Gandhinagar]({{site.url}}/assets/images/pg_gtu.jpg)
+![PG GTU Gandhinagar]({{site.url}}{{ site.baseurl }}/assets/images/pg_gtu.jpg)
 
 <p class="center">
   At <a href="http://pgschool.gtu.ac.in/moodle/">PG GTU Gandhinagar</a>
@@ -95,7 +95,7 @@ Photos
 
 **- - -**
 
-![kskv_kachchh_university]({{site.url}}/assets/images/kskvku_photo.jpg)
+![kskv_kachchh_university]({{site.url}}{{ site.baseurl }}/assets/images/kskvku_photo.jpg)
 
 <p class="center">
   At <a href="http://cs.kskvku.ac.in/">K.S.K.V. Kachchh University</a>
@@ -103,7 +103,7 @@ Photos
 
 **- - -**
 
-![Polytechnic Gandhinagar]({{site.url}}/assets/images/polytechnic_gandhinagar.jpg)
+![Polytechnic Gandhinagar]({{site.url}}{{ site.baseurl }}/assets/images/polytechnic_gandhinagar.jpg)
 
 <p class="center">
   At <a href="http://www.gpgandhinagar.edu.in/">Gujarat Polytechnic College, Gandhinagar</a>
@@ -111,7 +111,7 @@ Photos
 
 **- - -**
 
-![Parul University]({{site.url}}/assets/images/parul_university.jpg)
+![Parul University]({{site.url}}{{ site.baseurl }}/assets/images/parul_university.jpg)
 
 <p class="center">
   At <a href="http://paruluniversity.ac.in/home/">Parul University, Waghodia, Vadodara</a>
@@ -119,7 +119,7 @@ Photos
 
 **- - -**
 
-![Nirma University]({{site.url}}/assets/images/nirma_university.jpg)
+![Nirma University]({{site.url}}{{ site.baseurl }}/assets/images/nirma_university.jpg)
 
 <p class="center">
   At <a href="http://www.nirmauni.ac.in/">Nirma Technology University, Ahmedabad</a>
@@ -127,7 +127,7 @@ Photos
 
 **- - -**
 
-![Startup Gujarat]({{site.url}}/assets/images/startup_gujarat.jpg)
+![Startup Gujarat]({{site.url}}{{ site.baseurl }}/assets/images/startup_gujarat.jpg)
 
 <p class="center">
   At <a href="http://the1947.com/">Startup Gujarat, Gandhinagar</a>
@@ -135,7 +135,7 @@ Photos
 
 **- - -**
 
-![Ahmedabad Meetup]({{site.url}}/assets/images/ahmedabad_meetup.jpg)
+![Ahmedabad Meetup]({{site.url}}{{ site.baseurl }}/assets/images/ahmedabad_meetup.jpg)
 
 <p class="center">
   At
@@ -146,7 +146,7 @@ Photos
 
 **- - -**
 
-![DAIICT]({{site.url}}/assets/images/daiict.jpg)
+![DAIICT]({{site.url}}{{ site.baseurl }}/assets/images/daiict.jpg)
 
 <p class="center">
   At <a href="http://www.daiict.ac.in/">Dhirubhai Ambani Institute of Information and Communication Technology
@@ -155,7 +155,7 @@ Photos
 
 **- - -**
 
-![Engineering college Ajmer]({{site.url}}/assets/images/engineering_college_ajmer.jpg)
+![Engineering college Ajmer]({{site.url}}{{ site.baseurl }}/assets/images/engineering_college_ajmer.jpg)
 
 <p class="center">
   At <a href="http://www.gweca.ac.in">Government Women Engineering College Ajmer</a>
@@ -163,7 +163,7 @@ Photos
 
 **- - -**
 
-![Ahmedabad University]({{site.url}}/assets/images/aeg_ahmedabad.jpg)
+![Ahmedabad University]({{site.url}}{{ site.baseurl }}/assets/images/aeg_ahmedabad.jpg)
 
 <p class="center">
   At <a href="https://www.ahduni.edu.in/">Ahmedabad University</a>
@@ -171,7 +171,7 @@ Photos
 
 **- - -**
 
-![Pycon India]({{site.url}}/assets/images/pycon_india.jpg)
+![Pycon India]({{site.url}}{{ site.baseurl }}/assets/images/pycon_india.jpg)
 
 <p class="center">
   At <a href="https://in.pycon.org/2016/">PyCon India, New Delhi</a>
@@ -179,7 +179,7 @@ Photos
 
 **- - -**
 
-![Macker Party]({{site.url}}/assets/images/macker_party.jpg)
+![Macker Party]({{site.url}}{{ site.baseurl }}/assets/images/macker_party.jpg)
 
 <p class="center">
   At <a href="https://reps.mozilla.org/e/maker-party-gujarat/">Mozilla Maker Party Ahmedabad</a>

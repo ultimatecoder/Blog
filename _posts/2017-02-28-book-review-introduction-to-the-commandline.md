@@ -13,7 +13,7 @@ excerpt: >
   programming language. The chapters are independent of each other.
 ---
 ![introduction_to_command_line]({{ site.url
-}}/assets/images/book_image_introduction_to_the_commandline.jpg)
+}}{{ site.baseurl }}/assets/images/book_image_introduction_to_the_commandline.jpg)
 
 
 ## tl;dr
