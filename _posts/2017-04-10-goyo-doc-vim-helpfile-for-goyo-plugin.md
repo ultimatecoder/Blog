@@ -11,7 +11,7 @@ excerpt: >
   not useful at the time of using vim for writing. It provides certain
 ---
 
-![goyo_doc_plugin]({{site.url}}/assets/images/goyo_doc_plugin.png)
+![goyo_doc_plugin]({{site.url}}{{ site.baseurl }}/assets/images/goyo_doc_plugin.png)
 
 
 ### What is Goyo?

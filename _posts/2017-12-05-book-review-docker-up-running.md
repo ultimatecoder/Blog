@@ -10,7 +10,7 @@ tags:
 
 
 ![book image docker up and running]({{
-site.url}}/assets/images/book_review_docker_up_and_running/main.jpg)
+site.url}}{{ site.baseurl }}/assets/images/book_review_docker_up_and_running/main.jpg)
 
 In the modern era of software engineering, terms are coined with a new wrapper.
 Such wrappers are required to make bread-and-butter out of it. Sometimes good

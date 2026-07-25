@@ -20,3 +20,7 @@ tags
 ## Environment normalization:
 /.bundle/
 /vendor/bundle
+
+# Sensitive key material — never commit
+keypair.pem
+keypair.pem.enc

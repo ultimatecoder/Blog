@@ -9,7 +9,7 @@ tag:
 ---
 
 ![group_photo]({{
-site.url}}/assets/images/django_girls_blr_2018/group_photo.jpg)
+site.url}}{{ site.baseurl }}/assets/images/django_girls_blr_2018/group_photo.jpg)
 
 ## TL;DR
 

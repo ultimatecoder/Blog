@@ -13,7 +13,7 @@ excerpts: >
 ---
 
 ![PyDelhi Conf
-2017]({{site.url}}/assets/images/pydelhi_conf_2017/group_photo.jpg)
+2017]({{site.url}}{{ site.baseurl }}/assets/images/pydelhi_conf_2017/group_photo.jpg)
 
 ## TL;DR
 
@@ -32,7 +32,7 @@ framework.
 
 
 ![PyDelhi
-Community]({{site.url}}/assets/images/pydelhi_conf_2017/pydelhi_community.jpg)
+Community]({{site.url}}{{ site.baseurl }}/assets/images/pydelhi_conf_2017/pydelhi_community.jpg)
 
 <p class="center"> PyDelhi conf 2017 volunteers </p>
 
@@ -52,7 +52,7 @@ to mentor.
 ### [PyDelhi conf 2017][pydelhi_conf_2017]
 
 
-![Conference T-shirt]({{site.url}}/assets/images/pydelhi_conf_2017/t_shirt.jpg)
+![Conference T-shirt]({{site.url}}{{ site.baseurl }}/assets/images/pydelhi_conf_2017/t_shirt.jpg)
 
 <p class="center"> Conference T-shirt </p>
 
@@ -70,15 +70,15 @@ early slot was given to workshops for both the days. One large conference hall
 was located on a 2nd floor of the building and two halls at the ground floor.
 Food and beverages were served on the base floor.
 
-![Panel discussion]({{site.url}}/assets/images/pydelhi_conf_2017/pannel_disussion.jpg)
+![Panel discussion]({{site.url}}{{ site.baseurl }}/assets/images/pydelhi_conf_2017/pannel_disussion.jpg)
 
 <p class="center"> Panel Discussion </p>
 
-![Desk]({{site.url}}/assets/images/pydelhi_conf_2017/desk.jpg)
+![Desk]({{site.url}}{{ site.baseurl }}/assets/images/pydelhi_conf_2017/desk.jpg)
 
 <p class="center"> Registration desk </p>
 
-![Lunch]({{site.url}}/assets/images/pydelhi_conf_2017/lunch.jpg)
+![Lunch]({{site.url}}{{ site.baseurl }}/assets/images/pydelhi_conf_2017/lunch.jpg)
 
 <p class="center"> Tea break </p>
 
@@ -86,7 +86,7 @@ Food and beverages were served on the base floor.
 ### Keynote speakers
 
 
-![Mr. Richardo Rocha]({{site.url}}/assets/images/pydelhi_conf_2017/ricardo.jpg)
+![Mr. Richardo Rocha]({{site.url}}{{ site.baseurl }}/assets/images/pydelhi_conf_2017/ricardo.jpg)
 
 * [**Mr. Ricardo Rocha:**](
   https://www.linkedin.com/in/ricardo-rocha-739aa718/?ppe=1) Mr. Rocha is a
@@ -98,7 +98,7 @@ Food and beverages were served on the base floor.
   keep an eye on various Summer Internship Programs which are very similar to
   Google Summer of Code program.
 
-![Mr. Chris Stucchio]({{site.url}}/assets/images/pydelhi_conf_2017/chris.jpg)
+![Mr. Chris Stucchio]({{site.url}}{{ site.baseurl }}/assets/images/pydelhi_conf_2017/chris.jpg)
 
 * [**Mr. Chris Stucchio:**](https://www.chrisstucchio.com/) Mr. Stucchio is
   director of Data Science at [Wingify/ VWO](https://vwo.com/). I found him
@@ -154,7 +154,7 @@ home and improve the slides. I heard from friends that the party was awesome!
 
 ### My workshop session
 
-![Tango with Django]({{site.url}}/assets/images/pydelhi_conf_2017/talk_2.jpg)
+![Tango with Django]({{site.url}}{{ site.baseurl }}/assets/images/pydelhi_conf_2017/talk_2.jpg)
 
 <p class="center"> Me conducting workshop </p>
 
@@ -170,7 +170,7 @@ already a name of famous book solving the same purpose.
 
 ### Dev sprints
 
-![Dev sprints]({{site.url}}/assets/images/pydelhi_conf_2017/devsprint.jpg)
+![Dev sprints]({{site.url}}{{ site.baseurl }}/assets/images/pydelhi_conf_2017/devsprint.jpg)
 
 <p class="center"> Me hacking at dev sprints section </p>
 

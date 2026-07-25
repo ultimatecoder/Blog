@@ -7,7 +7,7 @@ excerpt: >
   meeting Mr. Shakthi Kannan. While travelling to Chennai I dropped a mail
 ---
 
-![Indian Linux User Group Chennai]({{site.url}}/assets/images/ilugc.jpg)
+![Indian Linux User Group Chennai]({{site.url}}{{ site.baseurl }}/assets/images/ilugc.jpg)
 
 Lately I was travelling to [Chennai](https://en.wikipedia.org/wiki/Chennai)
 for some personal work. I was very clear on meeting [Mr. Shakthi

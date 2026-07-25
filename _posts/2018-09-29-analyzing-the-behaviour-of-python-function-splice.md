@@ -9,7 +9,7 @@ tag:
 ---
 
 
-![Title Image](/assets/images/python_slice_function/title_image.jpg)
+![Title Image]({{ site.baseurl }}/assets/images/python_slice_function/title_image.jpg)
 
 Last Friday, I was sitting in one of the good coffee shops in Bangalore with my
 friend. Coffee and discussion is the best combination to release stress. It was

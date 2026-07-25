@@ -31,7 +31,7 @@ in a built-in scope, you don't have to import it from any module. You can call
 this function to put breakpoints in your code. This approach is handier  than
 importing ```pdb.set_trace()```.
 
-![Breakpoint function in Python 3.7](/assets/images/walkthrough_python_3_7/breakpoint_example.gif)
+![Breakpoint function in Python 3.7]({{ site.baseurl }}/assets/images/walkthrough_python_3_7/breakpoint_example.gif)
 
 Code used in above example
 
@@ -52,7 +52,7 @@ single flag. But with this release, you can certainly reduce your pain by using
 your code by setting the environment variable ```PYTHONBREAKPOINT``` to ```0```.
 
 
-![Breakpoint environment variable in Python 3.7](/assets/images/walkthrough_python_3_7/breakpoint_environment_variable_example.gif)
+![Breakpoint environment variable in Python 3.7]({{ site.baseurl }}/assets/images/walkthrough_python_3_7/breakpoint_environment_variable_example.gif)
 
 ##### I advise putting "PYTHONBREAKPOINT=0" in your production environment to avoid unwanted pausing at forgotten breakpoints
 
@@ -63,7 +63,7 @@ You can pipe the output of Standard Output Stream (stdout) and Standard Error
 Stream (stderr) by enabling ```capture_output``` parameter of
 ```subprocess.run()``` function.
 
-![subprocess.run got capture_output parameter](/assets/images/walkthrough_python_3_7/subprocess_run_capture_output.gif)
+![subprocess.run got capture_output parameter]({{ site.baseurl }}/assets/images/walkthrough_python_3_7/subprocess_run_capture_output.gif)
 
 You should note that it is an improvement over piping the stream manually. For
 example, ```subprocess.run(["ls", "-l", "/var"], stdout=subprocess.PIPE,
@@ -84,7 +84,7 @@ put obvious constructor code for you.  Additionally, it defines a behaviour for
 dander methods ```__repr__()```, ```__eq__()``` and ```__hash__()```.
 
 
-![Dataclasses.dataclass](/assets/images/walkthrough_python_3_7/dataclasses_dataclass.gif)
+![Dataclasses.dataclass]({{ site.baseurl }}/assets/images/walkthrough_python_3_7/dataclasses_dataclass.gif)
 
 Below is the code before introducing a ```dataclasses.dataclass``` decorator.
 
@@ -116,7 +116,7 @@ The namedtuples are a very helpful data structure, yet I found it is less known
 amongst developers. With this release, you can set default values to argument
 variables.
 
-![Namedtuples with default arguments](/assets/images/walkthrough_python_3_7/namedtuple_example.gif)
+![Namedtuples with default arguments]({{ site.baseurl }}/assets/images/walkthrough_python_3_7/namedtuple_example.gif)
 
 ##### Note: Default arguments will be assigned from left to right. In the above example, default value ``2`` will be assigned to variable ``y``
 
