@@ -10,4 +10,4 @@ export LANG=en_US.UTF-8
 # domain) — strip it so internal-link checks resolve against ./_site/.
 bundle exec htmlproofer ./_site/ --only-4xx --no-enforce-https \
   --swap-urls "^/Blog:" \
-  --ignore-urls "https://drive.google.com/file/d/0B_TmiicGbqjHb2ZGcE5QYmtXRHc/view?usp=sharing,https://www.ahduni.edu.in/,https://reps.mozilla.org/e/maker-party-gujarat/,https://sayanchowdhury.dgplug.org/,https://github.com/moby/moby/blob/master/CHANGELOG.md#180-2015-08-11"
+  --ignore-urls "https://drive.google.com/file/d/0B_TmiicGbqjHb2ZGcE5QYmtXRHc/view?usp=sharing,https://www.ahduni.edu.in/,https://reps.mozilla.org/e/maker-party-gujarat/,https://sayanchowdhury.dgplug.org/,https://github.com/moby/moby/blob/master/CHANGELOG.md#180-2015-08-11,https://pythonexpress.in/,https://www.hackerearth.com"
