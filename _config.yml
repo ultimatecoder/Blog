@@ -20,7 +20,7 @@ description: > # this means to ignore newlines until "baseurl:"
   and an Actor by gene. I write mostly on programming topics. Browse through
   my blog posts to identify my taste of writing.
 
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/Blog" # the subpath of your site, e.g. /blog
 twitter_username: jaysinhp
 github_username:  ultimatecoder
 
@@ -29,7 +29,6 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-minifier
   - jekyll-sitemap
   - jekyll-seo-tag
 exclude:
@@ -37,7 +36,7 @@ exclude:
   - Gemfile.lock
   - vendor
 
-google_analytics: UA-57792488-6
+# google_analytics: G-XXXXXXXXXX  # Replace with your GA4 measurement ID
 defaults:
   -
     scope:

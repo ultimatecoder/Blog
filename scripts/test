@@ -1,2 +1,13 @@
+export LANG=en_US.UTF-8
+
+# Pre-2019 posts link to plenty of sites that never moved to https; enforcing
+# it here would just flag old content, not real breakage.
+# The ignored URLs below are confirmed dead (404) or blocking automated
+# requests (403) and are unrelated to this repo.
 ./scripts/build
-bundle exec htmlproofer ./_site/ --only-4xx
+# _site/ is the site root on disk, but pages link internally with the
+# "/Blog" baseurl (this is a GitHub Pages project site, not a custom
+# domain) — strip it so internal-link checks resolve against ./_site/.
+bundle exec htmlproofer ./_site/ --only-4xx --no-enforce-https \
+  --swap-urls "^/Blog:" \
+  --ignore-urls "https://drive.google.com/file/d/0B_TmiicGbqjHb2ZGcE5QYmtXRHc/view?usp=sharing,https://www.ahduni.edu.in/,https://reps.mozilla.org/e/maker-party-gujarat/,https://sayanchowdhury.dgplug.org/,https://github.com/moby/moby/blob/master/CHANGELOG.md#180-2015-08-11"

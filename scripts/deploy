@@ -1,3 +1,0 @@
-#!/bin/bash
-
-rsync -avr --rsh="ssh -i keypair.pem -o StrictHostKeyChecking=no" --delete-after --delete-excluded _site/ travis_ftp@jaysinh.com:/blog/ || exit
