@@ -10,7 +10,7 @@ permalink: /tags/
 {% assign tag = post | first %}
   <ul class="post-list">
     <h2>
-      <a class="post-link" href="/tags/{{ tag }}/">{{ tag | escape }}</a>
+      <a class="post-link" href="{{ '/tags/' | append: tag | append: '/' | relative_url }}">{{ tag | escape }}</a>
     </h2>
   </ul>
 {% endfor %}
