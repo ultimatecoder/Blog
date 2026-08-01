@@ -7,8 +7,8 @@ export LANG=en_US.UTF-8
 
 # External URLs htmlproofer should not fail on. Two reasons appear here:
 #   dead     — confirmed 404/gone, unrelated to this repo
-#   ci-block — live (200 from a browser) but returns 403 to GitHub Actions'
-#              shared runner IPs, i.e. bot/WAF blocking, not a broken link
+#   ci-block — live (200 from a browser) but returns 403/415 to htmlproofer,
+#              i.e. bot/WAF blocking, not a broken link
 ignore_urls=(
   "https://drive.google.com/file/d/0B_TmiicGbqjHb2ZGcE5QYmtXRHc/view?usp=sharing"  # dead
   "https://reps.mozilla.org/e/maker-party-gujarat/"                                # dead
@@ -17,14 +17,12 @@ ignore_urls=(
   "https://www.ahduni.edu.in/"                                                     # ci-block
   "https://pythonexpress.in/"                                                      # ci-block
   "https://www.hackerearth.com"                                                    # ci-block
+  "http://www.gweca.ac.in"                                                         # ci-block
 )
 # htmlproofer wants a single comma-separated string.
 ignore_urls_csv=$(IFS=,; echo "${ignore_urls[*]}")
 
-# _site/ is the site root on disk, but pages link internally with the
-# "/Blog" baseurl (this is a GitHub Pages project site, not a custom
-# domain) — strip it so internal-link checks resolve against ./_site/.
-# Keep this "^/Blog" prefix in sync with baseurl in _config.yml.
+# baseurl is empty (the site is served at the root of a custom domain), so
+# internal links already resolve against ./_site/ with no URL rewriting.
 bundle exec htmlproofer ./_site/ --only-4xx --no-enforce-https \
-  --swap-urls "^/Blog:" \
   --ignore-urls "$ignore_urls_csv"
