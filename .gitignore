@@ -3,6 +3,9 @@ _site
 .sass-cache
 .jekyll-metadata
 
+# lighthouse-ci report output
+.lighthouseci
+
 # vim
 wap
 [._]*.s[a-v][a-z]
