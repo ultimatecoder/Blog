@@ -18,6 +18,7 @@ ignore_urls=(
   "https://pythonexpress.in/"                                                      # ci-block
   "https://www.hackerearth.com"                                                    # ci-block
   "http://www.gweca.ac.in"                                                         # ci-block
+  "https://askubuntu.com/a/162896"                                                 # ci-block
 )
 # htmlproofer wants a single comma-separated string.
 ignore_urls_csv=$(IFS=,; echo "${ignore_urls[*]}")
