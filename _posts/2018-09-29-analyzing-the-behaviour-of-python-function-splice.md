@@ -2,10 +2,10 @@
 layout: post
 title: "Analyzing the behaviour of Python function slice"
 date: "2018-09-29 10:17:46 +0530"
-tag:
+tags:
   - python
   - slice
-  - python trick questions
+  - python-trick-questions
 ---
 
 

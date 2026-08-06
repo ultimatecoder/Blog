@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Visit to Indian Linux User Group, Chennai
-tag: ILUG-C
+tags: ilug-c
 excerpt: >
   Lately I was travelling to Chennai for some personal work. I was very clear on
   meeting Mr. Shakthi Kannan. While travelling to Chennai I dropped a mail

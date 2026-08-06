@@ -2,10 +2,10 @@
 layout: post
 title: "Python 3.7 feature walkthrough"
 date: "2019-01-13 01:23:12 +0530"
-tag:
-  - Python
-  - CorePython
-  - Python3.7
+tags:
+  - python
+  - core-python
+  - python-3-7
 ---
 
 

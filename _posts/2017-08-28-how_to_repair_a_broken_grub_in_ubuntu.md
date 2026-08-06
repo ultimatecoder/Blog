@@ -2,10 +2,10 @@
 layout: post
 title: "How to repair a broken GRUB in Ubuntu?"
 date: "2017-08-28 13:35:42 +0530"
-tag:
-  - Ubuntu
-  - GRUB
-  - How-to
+tags:
+  - ubuntu
+  - grub
+  - how-to
 excerpt: Steps to restore your GRUB if you have formatted boot partition mistakenly
 ---
 

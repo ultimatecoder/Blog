@@ -2,7 +2,7 @@
 layout: post
 title: "PyDelhi Conf 2017: A beautiful conference happened in New Delhi, India"
 date: "2017-07-21 18:14:03 +0530"
-tag:
+tags:
   - python
   - conference
   - django

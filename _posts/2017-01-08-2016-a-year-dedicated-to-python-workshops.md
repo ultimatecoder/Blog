@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 2016 A year dedicated to Python Workshops
-tag:
+tags:
   - python
   - workshop
   - pythonexpress

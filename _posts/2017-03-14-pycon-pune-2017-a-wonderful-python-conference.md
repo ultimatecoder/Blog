@@ -2,7 +2,7 @@
 layout: post
 title: "Pycon Pune 2017: A wonderful Python conference"
 date: "2017-03-14 18:18:02 +0530"
-tag:
+tags:
   - python
   - conference
 excerpt: >
