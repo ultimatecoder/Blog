@@ -169,9 +169,9 @@ migrate to the hash-based approach.
 
 I hope you were able to learn something new by reading this post. If you want to
 read an in-depth discussion on each feature introduced in Python 3.7, then
-please read
-[this](https://docs.python.org/3.7/whatsnew/changelog.html#python-3-7-0-final)
-official post. Happy hacking!
+please read the
+[official Python 3.7 changelog](https://docs.python.org/3.7/whatsnew/changelog.html#python-3-7-0-final).
+Happy hacking!
 
 
 ###### Proofreaders: [Jason Braganza](https://janusworx.com/), Ninpo, basen_ from #python at Freenode, Ultron from #python-offtopic at Freenode, up|ime from ##English at Freenode

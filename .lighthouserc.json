@@ -1,0 +1,29 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./_site",
+      "url": [
+        "http://localhost/index.html",
+        "http://localhost/about/index.html",
+        "http://localhost/tags/index.html",
+        "http://localhost/tags/python/index.html",
+        "http://localhost/2019/01/12/python-3-7-feature-walkthrough.html",
+        "http://localhost/2017/08/28/how_to_repair_a_broken_grub_in_ubuntu.html",
+        "http://localhost/book/review/2017/02/28/book-review-introduction-to-the-commandline.html"
+      ],
+      "numberOfRuns": 1,
+      "settings": {
+        "onlyCategories": ["seo"]
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:seo": ["error", { "minScore": 1 }]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./.lighthouseci"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+name: SEO audit
+
+on:
+  pull_request:
+    branches:
+      - master
+  schedule:
+    # Mondays at 06:00 UTC. Search engines change what they reward without any
+    # commit on our side, so the audit runs on a timer as well as per change.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@44511735964dcb71245e7e55f72539531f7bc0eb # v1.257.0
+        with:
+          ruby-version: "3.2.0"
+          bundler-cache: true
+
+      # Built exactly as pages.yml builds it. A development build has no
+      # site.url, which leaves rel=canonical relative and robots.txt without a
+      # sitemap line, and Lighthouse fails both of those on a site that is
+      # actually fine in production.
+      - name: Build site
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --config _config.yml,_config_production.yml
+
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+
+      - name: Run Lighthouse CI
+        run: npx --yes @lhci/cli@0.14.x autorun --config=.lighthouserc.json
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          retention-days: 30

@@ -118,7 +118,8 @@ should be `args=$1`.  I myself has corrected the typographical error in the
 book.  This change will be published maybe in the next release of this book.
 
 If you are encountering any mistakes while reading, I request you to fix the
-change [here](http://write.flossmanuals.net/command-line/introduction/). The
+change in [the FLOSS Manuals editing
+interface](http://write.flossmanuals.net/command-line/introduction/). The
 interface for editing the book is beginner friendly. It took less than 5
 minutes to drive the change.
 

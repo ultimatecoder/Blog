@@ -26,6 +26,11 @@ twitter_username: jaysinhp
 github_username:  ultimatecoder
 
 # Build settings
+# Build in UTC so a local build produces the same post URLs as CI, which
+# runs in UTC. Without this the same commit yields different permalinks
+# depending on the machine timezone.
+timezone: UTC
+
 markdown: kramdown
 theme: minima
 plugins:
