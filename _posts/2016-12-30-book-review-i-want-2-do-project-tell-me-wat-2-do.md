@@ -2,7 +2,7 @@
 layout: post
 categories: book review
 title: Book review 'i want 2 do project tell me wat 2 do'
-tag: books
+tags: books
 excerpt: Inspirational book for students who are at a fresher level.
 ---
 

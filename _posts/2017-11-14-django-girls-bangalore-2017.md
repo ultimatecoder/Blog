@@ -2,7 +2,7 @@
 layout: post
 title: "My experience of mentoring at Django Girls Bangalore 2017"
 date: "2017-11-14 08:01:25 +0530"
-tag:
+tags:
   - django
   - python
   - djangogirls

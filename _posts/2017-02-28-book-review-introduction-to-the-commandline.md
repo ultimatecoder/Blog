@@ -2,7 +2,7 @@
 layout: post
 categories: book review
 title: Book review 'Introduction to the Command Line'
-tag:
+tags:
   - books
   - linux
   - programming
