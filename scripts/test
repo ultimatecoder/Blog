@@ -3,6 +3,10 @@ set -euo pipefail
 
 export LANG=en_US.UTF-8
 
+# Fail before building if an oversized image has been committed. Cheap, and it
+# catches the problem at review time rather than after it ships.
+./scripts/optimize-images --check
+
 ./scripts/build
 
 # External URLs htmlproofer should not fail on. Two reasons appear here:
