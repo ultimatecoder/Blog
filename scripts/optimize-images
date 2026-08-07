@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+#
+# Keep assets/images small enough to serve.
+#
+#   scripts/optimize-images          rewrite oversized images in place
+#   scripts/optimize-images --check  report oversized images, change nothing
+#
+# The --check mode is what CI runs (via scripts/test). It only looks at file
+# sizes, so it works anywhere. Rewriting needs image tools that are assumed to
+# be on the author's macOS machine, which is where new images enter the repo.
+#
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+# Budgets, in bytes. A photo is displayed at roughly 800px, so 1600px covers
+# high-density screens with room to spare; 300 KB is comfortably above the
+# largest photo once it has been through the pipeline below.
+readonly MAX_PHOTO_BYTES=307200      # 300 KB — jpg, png
+readonly MAX_PHOTO_EDGE=1600
+
+# Animated screencasts cost far more because they carry hundreds of frames.
+# Resizing is the only lever that helps them: palette reduction and lossy LZW
+# together save under 10%, while halving the width saves 60%.
+readonly MAX_GIF_BYTES=1258291       # 1.2 MB
+readonly MAX_GIF_WIDTH=1200
+
+readonly IMAGE_DIR="assets/images"
+
+# stat(1) is not portable between macOS and the Linux runners.
+file_size() {
+  stat -f %z "$1" 2>/dev/null || stat -c %s "$1"
+}
+
+human() {
+  awk -v b="$1" 'BEGIN { printf "%.0f KB", b / 1024 }'
+}
+
+budget_for() {
+  case "${1##*.}" in
+    gif|GIF) echo "$MAX_GIF_BYTES" ;;
+    *)       echo "$MAX_PHOTO_BYTES" ;;
+  esac
+}
+
+check() {
+  local over=0 file size budget
+
+  while IFS= read -r file; do
+    size=$(file_size "$file")
+    budget=$(budget_for "$file")
+    if [ "$size" -gt "$budget" ]; then
+      printf '  %-58s %8s  (budget %s)\n' \
+        "$file" "$(human "$size")" "$(human "$budget")" >&2
+      over=$((over + 1))
+    fi
+  done < <(find "$IMAGE_DIR" -type f \
+    \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' \) \
+    | sort)
+
+  if [ "$over" -gt 0 ]; then
+    cat >&2 <<EOF
+
+$over image(s) exceed their budget. Large images are slow on the web and worse
+in feed readers, which apply no CSS and render them at full size.
+
+Run ./scripts/optimize-images to shrink them, then commit the result.
+EOF
+    return 1
+  fi
+
+  echo "All images are within budget."
+}
+
+require() {
+  command -v "$1" >/dev/null 2>&1 || {
+    echo "error: $1 is required to optimize images. $2" >&2
+    exit 1
+  }
+}
+
+optimize() {
+  require sips "It ships with macOS."
+  require cjpeg "Install with: brew install jpeg-turbo"
+  require gifsicle "Install with: brew install gifsicle"
+
+  local file size budget tmp before after
+  before=0
+  after=0
+
+  while IFS= read -r file; do
+    size=$(file_size "$file")
+    budget=$(budget_for "$file")
+    before=$((before + size))
+
+    # Already small enough. Skipping keeps this script idempotent: re-encoding
+    # a JPEG that is already fine would only lose quality for no gain.
+    if [ "$size" -le "$budget" ]; then
+      after=$((after + size))
+      continue
+    fi
+
+    case "${file##*.}" in
+      gif|GIF)
+        tmp=$(mktemp -t optimize-images)
+        gifsicle -O3 --resize-fit-width "$MAX_GIF_WIDTH" --colors 128 \
+          "$file" > "$tmp"
+        mv "$tmp" "$file"
+        ;;
+      png|PNG)
+        sips -Z "$MAX_PHOTO_EDGE" "$file" >/dev/null
+        ;;
+      *)
+        # sips resizes well but writes bulky JPEGs — on a 2048px photo its
+        # encoder produced 452 KB where cjpeg produces 262 KB from the same
+        # pixels. So sips only resizes, and cjpeg does the encoding.
+        tmp=$(mktemp -t optimize-images)
+        sips -Z "$MAX_PHOTO_EDGE" -s format png "$file" --out "$tmp.png" >/dev/null
+        cjpeg -quality 80 -optimize -progressive "$tmp.png" > "$tmp"
+        mv "$tmp" "$file"
+        rm -f "$tmp.png"
+        ;;
+    esac
+
+    size=$(file_size "$file")
+    after=$((after + size))
+    printf '  %-58s -> %8s\n' "$file" "$(human "$size")"
+  done < <(find "$IMAGE_DIR" -type f \
+    \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' \) \
+    | sort)
+
+  printf '\n%s -> %s\n' "$(human "$before")" "$(human "$after")"
+}
+
+case "${1:-}" in
+  --check) check ;;
+  "")      optimize ;;
+  *)       echo "usage: $0 [--check]" >&2; exit 2 ;;
+esac
