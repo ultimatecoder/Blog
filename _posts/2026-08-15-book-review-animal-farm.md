@@ -10,23 +10,19 @@ tags:
 ![Street mural of a pig in a business suit, painted below the words Animal
 Farm]({{ site.url }}{{ site.baseurl }}/assets/images/animal_farm_bookreview/title.jpg)
 
-
-*I read Animal Farm in 2017 and started this post the same year, then never
-finished it. Nearly nine years later, I have finally found the time.*
+*I read Animal Farm in 2017 and started this post the same year, then never finished it. Nearly nine years later, I have
+finally found the time.*
 
 
 ### Introduction
 
-Animal Farm is one of the best books I read in 2017. George Orwell published it
-in 1945, and it remains one of his best known and most influential works. He is
-a brilliant satirist, and his writing is easy to find relatable. In 2008 The
-Times ranked him second on its list of "The 50 greatest British writers since
-1945".
+Animal Farm is one of the best books I read in 2017. George Orwell published it in 1945, and it remains one of his best
+known and most influential works. He is a brilliant satirist, and his writing is easy to find relatable. In 2008 The
+Times ranked him second on its list of "The 50 greatest British writers since 1945".
 
-The sentences are short and plain, and that plainness is doing real work. The
-book never tells you what to feel about the farm. It reports what happens,
-calmly, until the reporting itself becomes the argument. It runs to fewer than
-100 pages and I finished it in two sittings.
+The sentences are short and plain, and that plainness is doing real work. The book never tells you what to feel about
+the farm. It reports what happens, calmly, until the reporting itself becomes the argument. It runs to fewer than 100
+pages and I finished it in two sittings.
 
 ### Plot summary
 
@@ -69,4 +65,6 @@ impressed me so much that I bought another of his books, [1984](https://www.good
 * [Amazon India](https://www.amazon.in/Animal-Farm-George-Orwell/dp/8193387643)
 
 
-###### Proofreaders: [jesusinadidas](https://github.com/jesusinadidas)
+###### Proofreaders:
+* [jesusinadidas](https://github.com/jesusinadidas)
+* [AI - Anthropic's Opus 5](https://www.anthropic.com/news/claude-opus-5)
