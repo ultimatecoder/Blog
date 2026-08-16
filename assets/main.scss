@@ -1,0 +1,16 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "minima";
+
+// The About page portrait. `cover` keeps the face centred whatever aspect
+// ratio the source photo has, so the circle never squashes it.
+.profile-photo {
+  display: block;
+  margin: 0 auto $spacing-unit;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
