@@ -4,7 +4,8 @@ title: About
 permalink: /about/
 ---
 
-![my_image]({{ site.url}}{{ site.baseurl }}/assets/images/my_profile_picture.jpg)
+<img class="profile-photo" src="{{ site.url }}{{ site.baseurl }}/assets/images/my_profile_picture.jpg" alt="Jaysinh Shukla">
+
 
 
 I am **Jaysinh Shukla**, a Software Engineer at Amazon. For more than ten years I have
