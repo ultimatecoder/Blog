@@ -14,10 +14,17 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Budgets, in bytes. A photo is displayed at roughly 800px, so 1600px covers
-# high-density screens with room to spare; 300 KB is comfortably above the
-# largest photo once it has been through the pipeline below.
+# high-density screens with room to spare.
 readonly MAX_PHOTO_BYTES=307200      # 300 KB — jpg, png
-readonly MAX_PHOTO_EDGE=1600
+
+# 1600px is where photos start, not where they have to end up. A busy photo can
+# still miss the budget there: the Animal Farm mural lands at 403 KB, and no
+# amount of re-running helps because the result is stable. So the encoder walks
+# this ladder and keeps the widest size that fits. Narrowing beats lowering
+# quality — at the sizes that do fit, 1200px/q80 holds edges that 1600px/q65
+# smears, for about the same bytes.
+readonly PHOTO_EDGES="1600 1400 1200 1000"
+readonly PHOTO_QUALITY=80
 
 # Animated screencasts cost far more because they carry hundreds of frames.
 # Resizing is the only lever that helps them: palette reduction and lossy LZW
@@ -79,14 +86,53 @@ require() {
   }
 }
 
+# Write "$1" into "$2" at the widest ladder size that fits "$3" bytes, falling
+# through to the narrowest if none do. Every attempt re-reads the untouched
+# original, so a narrow attempt never stacks its loss on top of a wider one.
+#
+# sips resizes well but writes bulky JPEGs — on a 2048px photo its encoder
+# produced 452 KB where cjpeg produces 262 KB from the same pixels. So sips only
+# resizes, and cjpeg does the encoding.
+encode_jpeg() {
+  local src=$1 dest=$2 budget=$3 edge base png
+  # sips picks its output format from the extension, so the scratch file needs
+  # one. mktemp owns the name without it; both get cleaned up below.
+  base=$(mktemp -t optimize-images)
+  png="$base.png"
+
+  for edge in $PHOTO_EDGES; do
+    sips -Z "$edge" -s format png "$src" --out "$png" >/dev/null
+    cjpeg -quality "$PHOTO_QUALITY" -optimize -progressive "$png" > "$dest"
+    if [ "$(file_size "$dest")" -le "$budget" ]; then
+      break
+    fi
+  done
+
+  rm -f "$base" "$png"
+}
+
+# Same ladder for PNGs, which sips resizes in place without a separate encoder.
+encode_png() {
+  local src=$1 dest=$2 budget=$3 edge
+
+  for edge in $PHOTO_EDGES; do
+    cp "$src" "$dest"
+    sips -Z "$edge" "$dest" >/dev/null
+    if [ "$(file_size "$dest")" -le "$budget" ]; then
+      break
+    fi
+  done
+}
+
 optimize() {
   require sips "It ships with macOS."
   require cjpeg "Install with: brew install jpeg-turbo"
   require gifsicle "Install with: brew install gifsicle"
 
-  local file size budget tmp before after
+  local file size budget tmp before after stubborn
   before=0
   after=0
+  stubborn=""
 
   while IFS= read -r file; do
     size=$(file_size "$file")
@@ -108,28 +154,44 @@ optimize() {
         mv "$tmp" "$file"
         ;;
       png|PNG)
-        sips -Z "$MAX_PHOTO_EDGE" "$file" >/dev/null
+        tmp=$(mktemp -t optimize-images)
+        encode_png "$file" "$tmp" "$budget"
+        mv "$tmp" "$file"
         ;;
       *)
-        # sips resizes well but writes bulky JPEGs — on a 2048px photo its
-        # encoder produced 452 KB where cjpeg produces 262 KB from the same
-        # pixels. So sips only resizes, and cjpeg does the encoding.
         tmp=$(mktemp -t optimize-images)
-        sips -Z "$MAX_PHOTO_EDGE" -s format png "$file" --out "$tmp.png" >/dev/null
-        cjpeg -quality 80 -optimize -progressive "$tmp.png" > "$tmp"
+        encode_jpeg "$file" "$tmp" "$budget"
         mv "$tmp" "$file"
-        rm -f "$tmp.png"
         ;;
     esac
 
     size=$(file_size "$file")
     after=$((after + size))
     printf '  %-58s -> %8s\n' "$file" "$(human "$size")"
+
+    if [ "$size" -gt "$budget" ]; then
+      stubborn="$stubborn  $file — $(human "$size") (budget $(human "$budget"))
+"
+    fi
   done < <(find "$IMAGE_DIR" -type f \
     \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' \) \
     | sort)
 
   printf '\n%s -> %s\n' "$(human "$before")" "$(human "$after")"
+
+  # The ladder bottoms out, and some images will still not fit. Say so and fail.
+  # Exiting 0 here would be worse than useless: --check rejects the file anyway,
+  # and its advice is to run this script, which has already done all it can.
+  if [ -n "$stubborn" ]; then
+    cat >&2 <<EOF
+
+Still over budget after every size available:
+
+$stubborn
+Crop these, or replace them with a lighter image.
+EOF
+    return 1
+  fi
 }
 
 case "${1:-}" in
