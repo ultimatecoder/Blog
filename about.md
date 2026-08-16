@@ -7,12 +7,20 @@ permalink: /about/
 ![my_image]({{ site.url}}{{ site.baseurl }}/assets/images/my_profile_picture.jpg)
 
 
-Hi, I am Full-stack developer by profession, Computer scientist by heart and
-Actor by gene. I speak at local events, meetup or any technical conferences.
-I love to conduct lectures on any specific topic for college students. I am
-organizer of PyKutch. You can consider innovative programming as one of my
-hobby. In my free time I try to digest top rated programming books recommended
-by goodreads.  I prefer to communicate via electronic mail, IRC over physical.
-I support The Free Software Foundation and always insist the point of user’s
-Freedom. I am astonished by the contribution of the GNU community and openly
-thank them for giving us such a useful things.
+I am **Jaysinh Shukla**, a Software Engineer at Amazon. For more than ten years I have
+designed and run distributed systems in the transportation and finance industries —
+services that move invoices, payments, and freight data at a scale where every edge case
+eventually happens.
+
+What holds my attention these days: distributed systems, engineering leadership, and
+generative AI. I mentor engineers, and watching them earn their next promotion is the work
+I am proudest of. I have spoken at conferences across India, Germany, and Taiwan, and
+taught Python to students at more than fifteen colleges. All of it comes from the same
+instinct that keeps this blog alive: learn something, then hand it to someone else.
+
+Away from the terminal I am the father of a beautiful daughter, who is teaching me how to
+learn again — to look at everything from a fresh perspective.
+
+---
+
+*This summary was generated with the help of [Anthropic's Opus 5](https://www.anthropic.com/news/claude-opus-5).*
