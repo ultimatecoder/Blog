@@ -19,15 +19,15 @@ excerpt: >
 ## tl;dr
 
 
-Every chapter will introduce a bunch of comands and will point to its
+Every chapter will introduce a bunch of commands and will point to its
 respective documentation for further learning. You should expect chapters
 describing from the [grep](https://www.gnu.org/software/grep/manual/grep.html)
 command to [GNU Octave](https://www.gnu.org/software/octave/) which is a
 scientific programming language. The chapters are independent of each other.
 The book is must read if you are new to the
-[GNU/Linux](https://en.wikipedia.org/wiki/Linux) command line. If you are at
-the intermediate level, then too investing time in reading this book will
-unveil a few surprises for you.
+[GNU/Linux](https://en.wikipedia.org/wiki/Linux) command line. If you are at the
+intermediate level, then too investing time in reading this book will unveil a
+few surprises for you.
 
 
 ## Detailed review
@@ -105,17 +105,22 @@ I didn't encounter any sever mistakes except one typo. The section of **Userful
 customizations** on page number 80 of my printed version, contains following
 example:
 
-```
+{% highlight shell %}
 function manyargs {
   $arg=$1
   shift
-  ...
 }
-```
+{% endhighlight %}
 
-Here, **$arg** is a misprint. A shell variable is never assigned with **$**. It
-should be `args=$1`.  I myself has corrected the typographical error in the
-book.  This change will be published maybe in the next release of this book.
+Here, **$arg** is a misprint. A shell variable is never assigned with **$**.
+Below is the correct code
+
+{% highlight shell %}
+args=$1
+{% endhighlight %}
+
+I myself have corrected the typographical error in the book.  This change will be
+published maybe in the next release of this book.
 
 If you are encountering any mistakes while reading, I request you to fix the
 change in [the FLOSS Manuals editing
