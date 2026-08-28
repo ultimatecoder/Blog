@@ -138,6 +138,50 @@ input values. Especially rule number 3 and 4 referenced there.
   observe the behavior of `slice` called at `for in`, it makes sense to return
   an empty list instead of raising an `IndexError`.
 
+* **Reason number two:**
+
+  Both mutable and iterable object created by you can be of any length on
+  runtime. For example,
+
+  ```python
+  names = ['jay', 'ajay', 'vijay']
+
+  with open('user_names.txt') as f:
+    raw_names = f.read()
+    names.extend(raw_names.split())
+  print(names)
+  ```
+  In above code, we can be sure that the `list` variable `name` is initialized
+  with `3 elements. But we are unsure, how many new names will be added from
+  the file `user_names.txt`. Total number of names at runtime can be anything
+  greater than `3`.
+
+  Assume you have a robot which can clone a human. You instructed the robot to
+  clone first 100 humans from one queue of humans. You both don't know the
+  length of the queue. The robot will pick the first human, cloned it and put
+  that cloned human to a new queue. The robot is repeating that process of
+  cloning human one by one from the queue. While clonning 95th human the robot
+  realized that there isn't any other human left in the queue. Which means
+  there are 95 people in the queue. The queue of cloned humans will also have
+  95 people long. The robot will not shim the queue for remaining 5 people. On
+  the contrary, if the queue was 110 people long the robot will only clone
+  first 100 people. It will not clone those remaining 10 people from the queue.
+  There can be many senarios to clone humans standing in a queue, but I would
+  like to discuss one important. There is a queue of 10 people. What if I
+  instruct that robot to clone 5 people from 300th position? In a result, we
+  will get an empty queue of cloned people.
+
+  From the above example, consider the queue is an iterable object of Python
+  and the function `slice` is our robot. It makes sense to clamp the
+  `IndexError` at `slice` and return an empty interable object.
+
+  > > Thinking it this way: when you slice like that you don't know how long it
+  > > will be anyway, so returning an empty list is just as likely as a list
+  > > that you didn't index past (same with negative indexing), not raising
+  > > `IndexError` makes this expectation consistent
+  > > by [Brett Cannon](https://twitter.com/brettsky)
+
+
 I am not able to find further reasons to return an empty list instead of raising
 the `IndexError`. But I am sure, there will be. If you know any other potential
 reasons for such behavior of `slice`, please drop me a mail at **jaysinhp** at
