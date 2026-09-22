@@ -1,0 +1,205 @@
+// Dark theme (issue #117).
+//
+// Minima 2.5 compiles its colors into the CSS and runs lighten()/darken() on
+// them, so its Sass variables can't be swapped for CSS custom properties.
+// Dark mode is therefore a set of override rules, scoped so the light CSS is
+// left exactly as minima emits it.
+//
+// Which theme applies is decided by `data-theme` on <html>, set before first
+// paint by the script in _includes/head.html and changed by assets/js/theme.js.
+// Without JavaScript there is no `data-theme`, and the media query at the
+// bottom follows the OS setting instead.
+
+@import "syntax-dark";
+
+// Every foreground/background pair below meets WCAG AA (4.5:1) or better.
+$dark-background-color: #1b1b1d; // also the theme-color meta value in dark
+$dark-text-color:       #e3e3e3; // 13.4:1
+$dark-brand-color:      #6ea8fe; // 7.1:1
+$dark-visited-color:    #8fb0e0;
+$dark-grey-color:       #a0a0a0; // 6.6:1, post meta and footer
+$dark-grey-color-light: #3a3a3d; // borders
+$dark-grey-color-dark:  #c8c8c8; // site title, 10.3:1
+$dark-code-background:  #161b22; // matches rouge github.dark
+
+@mixin dark-theme {
+  color-scheme: dark;
+
+  body {
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+  }
+
+  a {
+    color: $dark-brand-color;
+
+    &:visited {
+      color: $dark-visited-color;
+    }
+
+    &:hover {
+      color: $dark-text-color;
+    }
+  }
+
+  blockquote {
+    color: $dark-grey-color;
+    border-left-color: $dark-grey-color-light;
+  }
+
+  pre,
+  code {
+    border-color: $dark-grey-color-light;
+    background-color: $dark-code-background;
+  }
+
+  hr {
+    border-color: $dark-grey-color-light;
+  }
+
+  .svg-icon {
+    fill: $dark-grey-color;
+  }
+
+  table {
+    color: #d0d0d0;
+    border-color: $dark-grey-color-light;
+
+    tr:nth-child(even) {
+      background-color: #232326;
+    }
+
+    th {
+      background-color: #26262a;
+      border-color: #444448;
+      border-bottom-color: #55555a;
+    }
+
+    td {
+      border-color: $dark-grey-color-light;
+    }
+  }
+
+  .site-header {
+    border-top-color: $dark-grey-color-dark;
+    border-bottom-color: $dark-grey-color-light;
+  }
+
+  .site-title {
+    &,
+    &:visited {
+      color: $dark-grey-color-dark;
+    }
+  }
+
+  .site-nav {
+    .page-link,
+    .theme-toggle {
+      color: $dark-text-color;
+    }
+
+    @include media-query($on-palm) {
+      background-color: $dark-background-color;
+      border-color: $dark-grey-color-light;
+
+      .menu-icon > svg {
+        fill: $dark-grey-color-dark;
+      }
+    }
+  }
+
+  .site-footer {
+    border-top-color: $dark-grey-color-light;
+  }
+
+  .footer-col-wrapper,
+  .post-meta {
+    color: $dark-grey-color;
+  }
+
+  @include syntax-dark;
+
+  // github.dark leaves these two unset, which would keep minima's light
+  // colors (#888, #555) on the dark code background.
+  .highlight .go {
+    color: #8b949e;
+  }
+
+  .highlight .gp {
+    color: #c9d1d9;
+  }
+}
+
+html[data-theme="dark"] {
+  @include dark-theme;
+}
+
+// Keeps native controls and scrollbars light when a visitor picks Light on a
+// dark OS; the color-scheme meta would otherwise let the browser follow the OS.
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+// No JavaScript: no data-theme attribute, so follow the OS setting.
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    @include dark-theme;
+  }
+}
+
+/**
+ * Theme toggle button (in _includes/header.html)
+ */
+.theme-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: $text-color;
+  font: inherit;
+  line-height: $base-line-height;
+  cursor: pointer;
+  vertical-align: middle;
+
+  // The class rule would otherwise beat the UA's [hidden] { display: none }.
+  &[hidden] {
+    display: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  @include media-query($on-palm) {
+    margin-left: 20px;
+    padding: 5px 10px;
+  }
+}
+
+.theme-icon {
+  display: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: middle;
+}
+
+.theme-icon-fill {
+  fill: currentColor;
+}
+
+html[data-theme-pref="light"] .theme-icon-light,
+html[data-theme-pref="dark"] .theme-icon-dark,
+html[data-theme-pref="system"] .theme-icon-system {
+  display: inline-block;
+}
+
+// Colors fade only while theme.js has this class on <html> (just after a
+// click), so page loads and navigation never animate.
+html.theme-transition,
+html.theme-transition * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
